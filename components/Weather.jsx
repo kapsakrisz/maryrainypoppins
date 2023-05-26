@@ -20,7 +20,8 @@ const Weather = ({ data }) => {
       </div>
       {/* Bottom */}
 
-<div className='bg-black/50 relative p-8 rounded-md'>
+<div className='bg-black/50
+ relative p-8 rounded-md'>
     <p className='text-2xl text-center pb-6'>Weather in {data.name}</p>
     <div className='flex justify-between text-center'>
         <div>
@@ -28,11 +29,11 @@ const Weather = ({ data }) => {
             <p className='text-xl'>Feels Like</p>
         </div>
         <div>
-            <p className='font-bold text-2xl'>{data.main.humidity}%</p>
+            <p className='text-2xl font-bold '>{data.main.humidity}%</p>
             <p className='text-xl'>Humidity</p>
         </div>
         <div>
-            <p className='font-bold text-2xl'>{data.wind.speed.toFixed(0)} MPH</p>
+            <p className='font-bold text-3xl'>{data.wind.speed.toFixed(0)} MPH</p>
             <p className='text-xl'>Winds</p>
         </div>
     </div>

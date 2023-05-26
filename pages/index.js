@@ -1,16 +1,19 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import Weather from '../components/Weather';
 import Spinner from '../components/Spinner';
+
 
 export default function Home() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState('');
 
+  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
 
   const fetchWeather = (e) => {
@@ -18,11 +21,27 @@ export default function Home() {
     setLoading(true);
     axios.get(url).then((response) => {
       setWeather(response.data);
-      // console.log(response.data);
+      setBackgroundImage(getBackgroundImage(response.data.weather[0].main));
     });
     setCity('');
     setLoading(false);
   };
+
+  const getBackgroundImage = (weatherCondition) => {
+    switch (weatherCondition) {
+      case 'Clear':
+        return 'https://images.unsplash.com/photo-1546440730-4716c1a47815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1434&q=80'; // Replace with your clear weather image URL
+      case 'Clouds':
+        return 'https://images.unsplash.com/photo-1603288967520-f3e04381dc02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'; // Replace with your cloudy weather image URL
+      case 'Rain':
+        return 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80'; // Replace with your rainy weather image URL
+      // Add more cases for other weather conditions as needed
+      default:
+        return 'https://images.unsplash.com/photo-1650980331974-b6268d3be45f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'; // Replace with your default image URL
+    }
+  };
+  
+ 
 
   if (loading) {
     return <Spinner />;
@@ -41,29 +60,34 @@ export default function Home() {
         <div className='left-0 right-0 bottom-0 absolute top-0  bg-black/60 z-[1]' />
                 {/* bg image */}
         <Image
-          src='https://images.unsplash.com/photo-1418985991508-e47386d96a71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+           src={backgroundImage}
           layout='fill'
           className='object-cover'
         />
 
         {/* Search */}
-        <div className='relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 px-4 text-white z-10'>
+        
+        
+            
+            <div className='relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 px-4 text-white z-10'>
+          
           <form
-            onSubmit={fetchWeather}
+                    onSubmit={fetchWeather}
             className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'
           >
             <div>
               <input
-                onChange={(e) => setCity(e.target.value)}
-                className='bg-transparent border-none text-white focus:outline-none text-2xl'
-                type='text'
-                placeholder='Search city'
+                  onChange={(e) => setCity(e.target.value)}
+                  className='bg-transparent border-none text-white focus:outline-none text-3xl'
+                  type='text'
+                  placeholder='Search city'
               />
             </div>
             <button onClick={fetchWeather}>
-              <BsSearch size={20} />
-            </button>
-          </form>
+              <BsSearch size={25} />
+                      </button>
+            </form>
+
         </div>
 
         {/* Weather */}

@@ -12,7 +12,10 @@ export default function Home() {
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState('');
-
+  useEffect(() => {
+    // Set default background image
+    setBackgroundImage(getBackgroundImage('Default'));
+  }, []);
   
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
 
@@ -84,7 +87,7 @@ export default function Home() {
               />
             </div>
             <button onClick={fetchWeather}>
-              <BsSearch size={25} />
+              <BsSearch size={18} />
                       </button>
             </form>
 

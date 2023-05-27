@@ -33,9 +33,9 @@ export default function Home() {
   const getBackgroundImage = (weatherCondition) => {
     switch (weatherCondition) {
       case 'Clear':
-        return 'https://images.unsplash.com/photo-1531386450450-969f935bd522?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2xlYXIlMjAlMjBuYXR1cmUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60';
+        return 'https://images.unsplash.com/photo-1463889253028-c66b99254e18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80';
       case 'Clouds':
-        return 'https://images.unsplash.com/photo-1603288967520-f3e04381dc02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'; 
+        return 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80'; 
       case 'Haze':
         return 'https://images.unsplash.com/photo-1447014421976-7fec21d26d86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
       

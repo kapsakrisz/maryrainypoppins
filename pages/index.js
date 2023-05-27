@@ -33,14 +33,14 @@ export default function Home() {
   const getBackgroundImage = (weatherCondition) => {
     switch (weatherCondition) {
       case 'Clear':
-        return 'https://images.unsplash.com/photo-1546440730-4716c1a47815?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1434&q=80'; // Replace with your clear weather image URL
+        return 'https://images.unsplash.com/photo-1531386450450-969f935bd522?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2xlYXIlMjAlMjBuYXR1cmUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60';
       case 'Clouds':
-        return 'https://images.unsplash.com/photo-1603288967520-f3e04381dc02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'; // Replace with your cloudy weather image URL
+        return 'https://images.unsplash.com/photo-1603288967520-f3e04381dc02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'; 
       case 'Rain':
-        return 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80'; // Replace with your rainy weather image URL
-      // Add more cases for other weather conditions as needed
+        return 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80'; 
+      
       default:
-        return 'https://images.unsplash.com/photo-1650980331974-b6268d3be45f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'; // Replace with your default image URL
+        return 'https://images.unsplash.com/photo-1650980331974-b6268d3be45f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'; 
     }
   };
   
